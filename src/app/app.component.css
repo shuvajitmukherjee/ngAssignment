@@ -1,0 +1,19 @@
+.question-section{
+    margin-top: 3em;
+    border: 0.2em solid #000;
+    height: 6em;
+    line-height: 4em;
+}
+
+.answer-options{
+    border-radius: 2em;
+    padding: 0px;
+    margin-bottom: 1em;
+}
+
+.answer-button{
+    margin-left: -1em;
+    border-radius: 2em;
+    height: 4em;
+    margin-right: 1em;
+}
