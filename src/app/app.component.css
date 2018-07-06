@@ -1,4 +1,4 @@
-.question-section{
+.question-section {
     margin-top: 3em;
     border: 0.2em solid #000;
     height: 6em;
@@ -6,19 +6,20 @@
     background-color: white;
 }
 
-.answer-options{
+.answer-options {
     border-radius: 2em;
     padding: 0px;
     margin-bottom: 1em;
+    border: 2px solid #000
 }
 
-.answer-button{
+.answer-button {
     margin-left: -1em;
     border-radius: 2em;
     height: 4em;
     margin-right: 1em;
 }
 
-.container-fluid{
-    background-color: lightgrey;
+.container-fluid {
+    background-color: #b1b3aec9;
 }
