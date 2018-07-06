@@ -1,36 +1,48 @@
 <div class="container-fluid">
-    <header class="row header-content"> 
-        <div class="col-md-11"><h3>{{contents.title}}</h3></div><div class="col-md text-center"><button class="btn-primary" style="margin: 0.5em;">?</button><button class="btn-primary">x</button></div>
+    <header class="row header-content">
+        <div class="col-md-11">
+            <h3>{{contents.title}}</h3>
+        </div>
+        <div class="col-md text-center"><button class="btn-primary" style="margin: 0.5em;">?</button><button class="btn-primary">x</button></div>
     </header>
     <section style="margin:2em">
-        <div class="row">           
-            <div class="col-md-1"><button class="btn">Sound</button></div><div class="col-md-11"><h6>{{contents.directions}}</h6></div>
+        <div class="row">
+            <div class="col-md-1"><button class="btn">Sound</button></div>
+            <div class="col-md-11">
+                <h6>{{contents.directions}}</h6>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10 question-section">Question goes here</div>
+            <div class="col-md-10 question-section">
+                <ng-container *ngIf="contents.rounds">
+                    <span [innerHTML]="contents.rounds[currentRound].questions[currentQuestion].text"></span>
+                </ng-container>
+            </div>
             <div class="col-md-1"></div>
         </div>
     </section>
-    <section>        
+    <section>
         <div class="row" style="margin: 3em;">
-            <div class="col-md-6">                
+            <div class="col-md-6">
                 <img src="/assets/img/lock0001.png" style="border:1px solid #000">
             </div>
             <div class="col-md-6" style="margin-top: 3em;">
                 <ul class="list-group">
-                    <li class="list-group-item answer-options"><button class="btn-primary answer-button">Sound</button>Cras justo odio</li>
-                    <li class="list-group-item answer-options"><button class="btn-primary answer-button">Sound</button>Dapibus ac facilisis in</li>
-                    <li class="list-group-item answer-options"><button class="btn-primary answer-button">Sound</button>Morbi leo risus</li>
-                    <li class="list-group-item answer-options"><button class="btn-primary answer-button">Sound</button>Porta ac consectetur ac</li>
+                    <ng-container *ngIf="contents.rounds">
+                        <li class="list-group-item answer-options" *ngFor="let option of contents.rounds[currentRound].questions[currentQuestion].answers; let indx = index">
+                            <button class="btn-primary answer-button" (click)="optionSelected(indx)">Sound</button> {{option}}
+                        </li>
+                    </ng-container>
                 </ul>
+                <div class="float-right"><button class="btn-primary" style="border-radius: 2em; margin-right: 1em;width: 5em;">Reset</button><button [ngClass]="{'btn-primary':!okButtonDisabled,'btn-disabled':okButtonDisabled}" style="border-radius: 2em;width: 5em;" [disabled]="okButtonDisabled"
+                        (click)="okClicked()">OK</button></div>
             </div>
         </div>
     </section>
     <footer class="row" style="border-top:4px solid #eae548e8; background-color:#d22e1ecf;height: 4em;">
-            <div class="col-md-12 text-center" style="margin-top: 1em;color:#eae548e8">
-                ooo
-            </div>
+        <div class="col-md-12 text-center" style="margin-top: 1em;color:#eae548e8;">
+            ooo
+        </div>
     </footer>
 </div>
-
