@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       });
   }
   OnDestroy(){
-    clearInterval(this.setintervalHolder);
+    clearTimeout(this.setintervalHolder);
   }
   optionSelected(index) {
     this.okButtonDisabled = false;
@@ -40,17 +40,7 @@ export class AppComponent implements OnInit {
   }
   okClicked() {
     if (this.contents.rounds[this.currentRound].questions[this.currentQuestion].correctAnswer - 1 == this.selectedAnswerIndex) {
-    //  this.changeImage();
-      if (this.numberOfQuestionsInCurrentRound === (this.selectedAnswerIndex + 1)) {
-        let currentRoundCalculation = this.currentRound.replace("round", '');
-        this.currentRound = (Object.keys(this.contents.rounds).length == parseInt(currentRoundCalculation)) ? "round1" : "round" + (parseInt(currentRoundCalculation) + 1);
-        this.currentQuestion = 0;
-      } else {
-        this.okButtonDisabled = true;
-        this.currentQuestion += 1;
-      }
-      this.selectedAnswerIndex = -1;
-      this.playTestPassed("Correct");
+      this.changeImage();
     } else {
       this.playTestPassed("Incorrect");
     }
@@ -72,11 +62,21 @@ export class AppComponent implements OnInit {
   rotateImage(curVal, lastVal) {
     this.currImageName = `/assets/img/lock${this.padDigits(curVal,4)}.png`;
     if (curVal !== lastVal) {
-      this.setintervalHolder = setInterval(() => {
+      this.setintervalHolder = setTimeout(() => {
         this.rotateImage(parseInt(curVal) + 1, lastVal);
-      }, 1000);
+      }, 100);
     } else {
-      clearInterval(this.setintervalHolder);
+      clearTimeout(this.setintervalHolder);
+         if (this.numberOfQuestionsInCurrentRound === (this.selectedAnswerIndex + 1)) {
+        let currentRoundCalculation = this.currentRound.replace("round", '');
+        this.currentRound = (Object.keys(this.contents.rounds).length == parseInt(currentRoundCalculation)) ? "round1" : "round" + (parseInt(currentRoundCalculation) + 1);
+        this.currentQuestion = 0;
+      } else {
+        this.okButtonDisabled = true;
+        this.currentQuestion += 1;
+      }
+      this.selectedAnswerIndex = -1;
+      this.playTestPassed("Correct");
     }
   }
 
@@ -85,6 +85,6 @@ export class AppComponent implements OnInit {
     this.selectedAnswerIndex = -1;
   }
   padDigits(number, digits) {
-    return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+    return Array(Math.max(digits - String(number).length + 1, 0)).join('0') + number;
   }
 }
