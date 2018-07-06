@@ -3,6 +3,7 @@
     border: 0.2em solid #000;
     height: 6em;
     line-height: 4em;
+    background-color: white;
 }
 
 .answer-options{
@@ -16,4 +17,8 @@
     border-radius: 2em;
     height: 4em;
     margin-right: 1em;
+}
+
+.container-fluid{
+    background-color: gainsboro;
 }
