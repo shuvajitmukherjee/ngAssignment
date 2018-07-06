@@ -25,18 +25,18 @@
     <section>
         <div class="row" style="margin: 3em;">
             <div class="col-md-6">
-                <img src="/assets/img/lock0001.png" style="border:1px solid #000">
+                <img [src]="currImageName" style="border:1px solid #000" id="vault_image">
             </div>
             <div class="col-md-6" style="margin-top: 3em;">
                 <ul class="list-group">
                     <ng-container *ngIf="contents.rounds">
                         <li class="list-group-item answer-options" *ngFor="let option of contents.rounds[currentRound].questions[currentQuestion].answers; let indx = index">
-                            <button class="btn-primary answer-button" (click)="optionSelected(indx)">Sound</button> {{option}}
+                            <button class="btn-primary answer-button" (click)="optionSelected(indx)" [ngClass]="{'btn-warning': selectedAnswerIndex==indx}">Sound</button> {{option}}
                         </li>
                     </ng-container>
                 </ul>
-                <div class="float-right"><button class="btn-primary" style="border-radius: 2em; margin-right: 1em;width: 5em;">Reset</button><button [ngClass]="{'btn-primary':!okButtonDisabled,'btn-disabled':okButtonDisabled}" style="border-radius: 2em;width: 5em;" [disabled]="okButtonDisabled"
-                        (click)="okClicked()">OK</button></div>
+                <div class="float-right"><button class="btn-primary" style="border-radius: 2em; margin-right: 1em;width: 5em;" (click)="resetOption()">Reset</button><button [ngClass]="{'btn-primary':!okButtonDisabled,'btn-disabled':okButtonDisabled}" style="border-radius: 2em;width: 5em;"
+                        [disabled]="okButtonDisabled" (click)="okClicked()">OK</button></div>
             </div>
         </div>
     </section>
