@@ -7,9 +7,13 @@
     </header>
     <section style="margin:2em">
         <div class="row">
-            <div class="col-md-1"><button class="btn">Sound</button></div>
+            <div class="col-md-1">
+                <a class="btn header-reader-btn" style="line-height:1.7em;" tabindex="0" (click)="playTestPassed(contents.directions)">
+                    <img src="/assets/img/s1.png" style="width:1.6em" alt="Read header">
+                </a>
+            </div>
             <div class="col-md-11">
-                <h6>{{contents.directions}}</h6>
+                <h6 style="line-height: 3em;">{{contents.directions}}</h6>
             </div>
         </div>
         <div class="row">
