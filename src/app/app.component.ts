@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   numberOfQuestionsInCurrentRound: number;
   currImageName: string = "/assets/img/lock0001.png";
   setintervalHolder: any;
+  changeDivColor: number = 0;
 
   constructor(private _contentService: contentService) { }
   ngOnInit() {
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
         this.numberOfQuestionsInCurrentRound = this.contents.rounds[this.currentRound].questions.length;
       });
   }
-  OnDestroy(){
+  OnDestroy() {
     clearTimeout(this.setintervalHolder);
   }
   optionSelected(index) {
@@ -60,17 +61,29 @@ export class AppComponent implements OnInit {
     this.rotateImage(curVal, lastVal);
   }
   rotateImage(curVal, lastVal) {
-    this.currImageName = `/assets/img/lock${this.padDigits(curVal,4)}.png`;
+    this.currImageName = `/assets/img/lock${this.padDigits(curVal, 4)}.png`;
     if (curVal !== lastVal) {
       this.setintervalHolder = setTimeout(() => {
         this.rotateImage(parseInt(curVal) + 1, lastVal);
       }, 100);
     } else {
       clearTimeout(this.setintervalHolder);
-         if (this.numberOfQuestionsInCurrentRound === (this.selectedAnswerIndex + 1)) {
+      if (this.numberOfQuestionsInCurrentRound === (this.currentQuestion + 1)) {
         let currentRoundCalculation = this.currentRound.replace("round", '');
-        this.currentRound = (Object.keys(this.contents.rounds).length == parseInt(currentRoundCalculation)) ? "round1" : "round" + (parseInt(currentRoundCalculation) + 1);
-        this.currentQuestion = 0;
+
+        if (Object.keys(this.contents.rounds).length != parseInt(currentRoundCalculation)) {
+          this.currentRound = (Object.keys(this.contents.rounds).length == parseInt(currentRoundCalculation)) ? "finished" : "round" + (parseInt(currentRoundCalculation) + 1);
+          this.numberOfQuestionsInCurrentRound = this.contents.rounds[this.currentRound].questions.length;
+          if (this.currentRound === 'round2') {
+            this.changeDivColor = 1;
+          } else if (this.currentRound === 'round3') {
+            this.changeDivColor = 2;
+          }
+          this.currentQuestion = 0;
+        } else {
+          this.changeDivColor = 3;
+          this.okButtonDisabled = true;
+        }
       } else {
         this.okButtonDisabled = true;
         this.currentQuestion += 1;

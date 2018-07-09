@@ -3,7 +3,7 @@
         <div class="col-md-11">
             <h3>{{contents.title}}</h3>
         </div>
-        <div class="col-md text-center"><button class="btn-primary" style="margin: 0.5em;">?</button><button class="btn-primary">x</button></div>
+        <div class="col-md text-center"><button class="btn-primary header-btn" style="margin: 0.5em;">?</button><button class="btn-primary header-btn">x</button></div>
     </header>
     <section style="margin:2em">
         <div class="row">
@@ -30,7 +30,7 @@
             <div class="col-md-6" style="margin-top: 3em;">
                 <ul class="list-group">
                     <ng-container *ngIf="contents.rounds">
-                        <li class="list-group-item answer-options" *ngFor="let option of contents.rounds[currentRound].questions[currentQuestion].answers; let indx = index">
+                        <li class="list-group-item answer-options" *ngFor="let option of contents.rounds[currentRound].questions[currentQuestion].answers; let indx = index;">
                             <button class="btn-primary answer-button" (click)="optionSelected(indx)" [ngClass]="{'btn-warning': selectedAnswerIndex==indx}">Sound</button> {{option}}
                         </li>
                     </ng-container>
@@ -42,7 +42,9 @@
     </section>
     <footer class="row" style="border-top:4px solid #eae548e8; background-color:#d22e1ecf;height: 4em;">
         <div class="col-md-12 text-center" style="margin-top: 1em;color:#eae548e8;">
-            ooo
+            <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor>=1}"></div>
+            <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor>=2}"></div>
+            <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor==3}"></div>
         </div>
     </footer>
 </div>

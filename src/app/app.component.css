@@ -23,3 +23,23 @@
 .container-fluid {
     background-color: #b1b3aec9;
 }
+
+.sliderBtn {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    border-radius: 2em;
+    box-shadow: inset -1px 1px 1px 1px #4e4b4be3;
+    -webkit-box-shadow: inset -1px 1px 0px 1px #4e4b4be3;
+    -moz-box-shadow: inset -1px 0px 1px 1px #4e4b4be3;
+}
+
+.sliderBtnFilled {
+    background-color: #e8d747;
+}
+
+.header-btn {
+    height: 2em;
+    border-radius: 2em;
+    width: 2.5em
+}
