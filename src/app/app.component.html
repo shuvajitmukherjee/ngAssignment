@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <header class="row header-content">
-        <div class="col-md-11">
+        <div class="col-md-10">
             <h3>{{contents.title}}</h3>
         </div>
-        <div class="col-md text-center"><button class="btn-primary header-btn" style="margin: 0.5em;">?</button><button class="btn-primary header-btn">x</button></div>
+        <div class="col-md-2 text-right"><button class="btn-primary header-btn" style="margin: 0.5em;">?</button><button class="btn-primary header-btn">x</button></div>
     </header>
     <section style="margin:2em">
         <div class="row">
@@ -44,8 +44,8 @@
             </div>
         </div>
     </section>
-    <footer class="row" style="border-top:4px solid #eae548e8; background-color:#d22e1ecf;height: 4em;">
-        <div class="col-md-12 text-center" style="margin-top: 1em;color:#eae548e8;">
+    <footer class="row" style="border-top: 4px solid #eae548e8; background-color: #d22e1ecf; height: 4em;">
+        <div class="col-md-12 text-center" style="margin-top: 1em; color: #eae548e8;">
             <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor>=1}"></div>
             <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor>=2}"></div>
             <div class="sliderBtn" [ngClass]=" { 'sliderBtnFilled': changeDivColor==3}"></div>

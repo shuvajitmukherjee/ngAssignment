@@ -55,14 +55,13 @@ export class AppComponent implements OnInit {
   }
 
   changeImage() {
-    let starVal = 1,
-      curVal = 1,
-      lastVal = 46;
+    let curVal = this.contents.rounds[this.currentRound].questions[this.currentQuestion].currentValue,
+      lastVal = this.contents.rounds[this.currentRound].questions[this.currentQuestion].LastValue;
     this.rotateImage(curVal, lastVal);
   }
   rotateImage(curVal, lastVal) {
     this.currImageName = `/assets/img/lock${this.padDigits(curVal, 4)}.png`;
-    if (curVal !== lastVal) {
+    if (curVal != lastVal) {
       this.setintervalHolder = setTimeout(() => {
         this.rotateImage(parseInt(curVal) + 1, lastVal);
       }, 100);
@@ -100,4 +99,5 @@ export class AppComponent implements OnInit {
   padDigits(number, digits) {
     return Array(Math.max(digits - String(number).length + 1, 0)).join('0') + number;
   }
+  
 }
