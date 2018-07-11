@@ -73,14 +73,8 @@ export class AppComponent implements OnInit {
         if (Object.keys(this.contents.rounds).length != parseInt(currentRoundCalculation)) {
           this.currentRound = (Object.keys(this.contents.rounds).length == parseInt(currentRoundCalculation)) ? "finished" : "round" + (parseInt(currentRoundCalculation) + 1);
           this.numberOfQuestionsInCurrentRound = this.contents.rounds[this.currentRound].questions.length;
-          if (this.currentRound === 'round2') {
-            this.changeDivColor = 1;
-          } else if (this.currentRound === 'round3') {
-            this.changeDivColor = 2;
-          }
           this.currentQuestion = 0;
-        } else {
-          this.changeDivColor = 3;
+        } else {         
           this.okButtonDisabled = true;
         }
       } else {
@@ -100,4 +94,8 @@ export class AppComponent implements OnInit {
     return Array(Math.max(digits - String(number).length + 1, 0)).join('0') + number;
   }
   
+  playSwf(){
+    let newWin = window.open("","_blank");
+    newWin.document.getElementsByTagName('body')[0].innerHTML = `<object width="400" height="50" data="localhost:4201/assets/img/hlp.swf"></object>`;
+  }
 }
