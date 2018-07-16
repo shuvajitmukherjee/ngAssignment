@@ -35,7 +35,7 @@
                 <ul class="list-group">
                     <ng-container *ngIf="contents.rounds">
                         <li class="list-group-item answer-options" *ngFor="let option of contents.rounds[currentRound].questions[currentQuestion].answers; let indx = index;">
-                            <button class="btn-ascent answer-button" (click)="optionSelected(indx)" [ngClass]="{'btn-warning': selectedAnswerIndex==indx}"> <img src="/assets/img/s2.png" style="width: 3em;" alt="Answer options"></button> {{option}}
+                            <button class="btn-ascent answer-button" #options (click)="optionSelected(indx)" [ngClass]="{'btn-warning': selectedAnswerIndex==indx}"> <img src="/assets/img/s2.png" style="width: 3em;" alt="Answer options"></button> {{option}}
                         </li>
                     </ng-container>
                 </ul>

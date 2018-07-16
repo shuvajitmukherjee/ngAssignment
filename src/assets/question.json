@@ -17,8 +17,7 @@
                         "splendid"
                     ],
                     "correctAnswer": "3",
-                    "currentValue": "1",
-                    "LastValue": "46"
+                    "status": 0
                 },
                 {
                     "text": "<p>Meg is my ______ in math.<\/p>",
@@ -29,8 +28,7 @@
                         "special"
                     ],
                     "correctAnswer": "2",
-                    "currentValue": "47",
-                    "LastValue": "138"
+                    "status": 0
                 }
             ]
         },
@@ -44,8 +42,7 @@
                         "special"
                     ],
                     "correctAnswer": "2",
-                    "currentValue": "139",
-                    "LastValue": "184"
+                    "status": 0
                 },
                 {
                     "text": "<p>My _______ and I will work together as a team.<\/p>",
@@ -56,8 +53,7 @@
                         "splendid"
                     ],
                     "correctAnswer": "3",
-                    "currentValue": "185",
-                    "LastValue": "230"
+                    "status": 0
                 },
                 {
                     "text": "<p>This hat is _____ because Gran gave it to me.<\/p>",
@@ -68,8 +64,7 @@
                         "splendid"
                     ],
                     "correctAnswer": "3",
-                    "currentValue": "231",
-                    "LastValue": "276"
+                    "status": 0
                 }
             ]
         },
@@ -83,8 +78,7 @@
                         "partner"
                     ],
                     "correctAnswer": "3",
-                    "currentValue": "277",
-                    "LastValue": "322"
+                    "status": 0
                 },
                 {
                     "text": "<p>I thanked my host for a _____ meal.<\/p>",
@@ -95,8 +89,7 @@
                         "partner"
                     ],
                     "correctAnswer": "1",
-                    "currentValue": "323",
-                    "LastValue": "368"
+                    "status": 0
                 },
                 {
                     "text": "<p>He will get ______ glasses to help him see.<\/p>",
@@ -107,8 +100,7 @@
                         "splendid"
                     ],
                     "correctAnswer": "2",
-                    "currentValue": "369",
-                    "LastValue": "456"
+                    "status": 0
                 }
             ]
         }
